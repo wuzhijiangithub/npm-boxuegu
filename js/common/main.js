@@ -5,11 +5,11 @@ requirejs.config({
 	baseUrl: '/',
 	paths: {
 		/*第三方插件库*/
-		jquery: './lib/jquery/jquery.min',
+		jquery: './node_modules/jquery/jquery.min',
 		jqueryCookie: './lib/jquery-cookie/jquery.cookie',
-		bootstrap: './lib/bootstrap/js/bootstrap',
+		bootstrap: './node_modules/bootstrap/dist/js/bootstrap.min',
 		nprogress: './lib/nprogress/nprogress',
-		template: './lib/artTemplate-3.0.1/template',
+		template: './node_modules/art-template/dist/template',
 		datepicker: './lib/bootstrap-datepicker/js/bootstrap-datepicker',
 		localeDatepicker: './lib/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
 		uploadify: './lib/uploadify/jquery.uploadify',
