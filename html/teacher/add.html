@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>学IT - 后台管理系统</title>
+	<?php include('../common/style.html') ?>
+	<link rel="stylesheet"  href="/lib/bootstrap/css/bootstrap.css"  />
+	<link rel="stylesheet"  href="/lib/bootstrap-datepicker/css/bootstrap-datepicker3.css"  />
+</head>
+<body>
+
+<!-- 侧边栏 -->
+<?php include('../common/aside.html') ?>
+<!-- 主体 -->
+<div class="main">
+	<div class="container-fluid">
+		<!-- 头部 -->
+		<?php include('../common/header.html') ?>
+		<div class="body teacher">
+			<!-- 面包屑 -->
+			<ol class="breadcrumb">
+				<li><a href="javascript:;">讲师管理</a></li>
+				<li class="active">讲师添加</li>
+			</ol>
+			<div class="teacher-add">
+				<form id="teacher-add-form" action="" class="form-horizontal col-xs-offset-2">
+				<!--表单显示容器-->
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!--表单模板-->
+<script type="text/template" id="teacher-add-tpl">
+		<div class="form-group">
+			<label for="" class="col-xs-3 control-label">姓名</label>
+			<div class="col-xs-4">
+				<input type="text" name="tc_name" value="{{tc_id ? tc_name :'' }}" class="form-control input-sm" placeholder="讲师名称">
+			</div>
+		</div>
+		{{ if !tc_id }}
+			<div class="form-group">
+				<label for="" class="col-xs-3 control-label">密码</label>
+				<div class="col-xs-4">
+					<input type="password" name="tc_pass" class="form-control input-sm">
+				</div>
+			</div>
+		{{ /if }}
+
+		<div class="form-group">
+			<label for="" class="col-xs-3 control-label">入职时间</label>
+			<div class="col-xs-4">
+				<input type="text" name="tc_join_date" class="form-control input-sm" id = "teacher-join-date" value = "{{tc_id ? tc_join_date :'' }}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="" class="col-xs-3 control-label">类型</label>
+			<div class="col-xs-2">
+				<select name="tc_type" class="form-control input-sm">
+					<option value="1" {{tc_type == 1 ? 'selected' : '' }}>讲师</option>
+					<option value="0" {{tc_type == 0 ? 'selected' : '' }}>管理员</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="" class="col-xs-3 control-label">性别</label>
+			<div class="col-xs-4">
+				<label class="radio-inline">
+					<input name="tc_gender" type="radio" value="0" {{tc_type == 0 ? 'checked' : '' }} > 男
+				</label>
+				<label class="radio-inline">
+					<input name="tc_gender" type="radio" value="1" {{tc_type == 1 ? 'checked' : '' }}> 女
+				</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-xs-7">
+				<button type="submit" href="./advert_list.html" class="btn btn-success btn-sm pull-right">{{ tc_id ? '编 辑': '添 加'}} </button>
+			</div>
+		</div>
+</script>
+
+<?php include('../common/loading.html') ?>
+<?php include('../common/script.html') ?>
+</body>
+</html>
